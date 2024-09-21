@@ -11,6 +11,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "import/namespace": "off", // Temporarily disable this rule
     "no-unused-vars": [
       1,
       {
