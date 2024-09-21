@@ -1,7 +1,14 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
+  let cartItems = getLocalStorage("so-cart");
+
+  // Check if cartItems is not an array and convert it to an array if necessary
+  if (!Array.isArray(cartItems)) {
+    cartItems = [cartItems]; // Wrap object in an array
+  }
+
+  // Now cartItems is guaranteed to be an array
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
